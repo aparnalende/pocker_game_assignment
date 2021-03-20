@@ -207,28 +207,5 @@ public class Game {
 		 maxVal=Collections.max(res);
 		 System.out.println("__________________________________________________________________________________________________________________________________________________________________________________________________________________________________\n");
 		 System.out.println("\t\tHighest card number is : "+maxVal+"\n");
-//			System.out.println(maxVal);
-//		int sum=0;
-//		for(int i=0;i<pd5.size();i++)
-//		{
-//			sum=sum+pd5.get(i).nameOfPatte;
-//		}
-//		return sum;
 	}
-	
-//	public static void displayWinner(List<Player> players) {
-//		int max=0;
-//		String player="";
-//		for(Player p:players)
-//		{
-//			System.out.println("Rank: "+p.rank);
-//			if(p.rank>max)
-//			{
-//				max=p.rank;
-//				player=p.pname;
-//			}
-//			System.out.println(p.rank);
-//		}
-//		System.out.println("Winner is: "+player+" with rank "+max);
-//	}
 }
