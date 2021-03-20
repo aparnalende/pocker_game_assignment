@@ -31,7 +31,7 @@ public class DeckPatta {
 
 	public void displayPatta() // Display all the set of patta
 	{
-		System.out.println(pattas.size());
+		System.out.println("All the  "+pattas.size()+" cards/pattas are ");
 		System.out.println(pattas);
 	}
 

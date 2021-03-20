@@ -6,7 +6,8 @@ public class Game {
 	Scanner sc = new Scanner(System.in);
 	DeckPatta dk;
 	static List<Player> players = new ArrayList<Player>();
-
+	static ArrayList<Integer> playerRank = new ArrayList();
+	
 	public Game(DeckPatta dk) {
 		super();
 		this.dk = dk;
@@ -26,20 +27,22 @@ public class Game {
 	}
 
 	public Player getWinner() {
-		System.out.println("__________________________________________________________________");
-		System.out.println("1.Normal Rule");
-		System.out.println("2.Any card/patta Jocker");
-		System.out.println("3.Low Card/patta Joker");
-		System.out.println("4.High Card/patta Joker");
-		System.out.println("\nPress any key to exit the game");
+		System.out.println("__________________________________________________________________________________________________________________________________________________________________________________________________________________________________\n");
+		System.out.println("\t\t1.Normal Rule");
+		System.out.println("\t\t2.Any card/patta Jocker");
+		System.out.println("\t\t3.Low Card/patta Joker");
+		System.out.println("\t\t4.High Card/patta Joker");
+		System.out.println("\n\t\tPress any key to exit the game");
 
-		System.out.println("____________________________________________________________________");
+		System.out.println("__________________________________________________________________________________________________________________________________________________________________________________________________________________________________\n");
 		System.out.println("Select the mode of the game");
 		int ch = sc.nextInt();
 
 		switch (ch) {
 		case 1:
+			System.out.println("By Normal Rule");
 			normalRule(players);
+//			displayWinner(players);
 			break;
 
 		default:
@@ -52,18 +55,29 @@ public class Game {
 	}
 
 	private static void normalRule(List<Player> players) {
-		if (checkSameNumber(players))
-			System.out.println("Same number card");
+		if (checkSameNumber(players)) {
+			System.out.println("\t\tSame number card occured");
+		}
 		else if (checkSequenceWithColor(players))
-			System.out.println("Same sequence colors");
+			System.out.println("\t\tSame sequence colors occured");
 		else if (checkSameSequenceWithoutColor(players))
-			System.out.println("Same sequence without color");
+			System.out.println("\t\tSame sequence without color occured");
 		else if (checkSameColor(players))
-			System.out.println("same color");
+			System.out.println("\t\tsame color cards occured");
 //		else if (checkPair(players))
 //			System.out.println("pair");
 		else
 			highestCardWinner(players);
+//		int count=0;
+//		for (Player p : players) {		
+//			count+=1;
+//			p.pname="Player".concat(String.valueOf(count));
+//			System.out.println(p.pname);
+//			p.rank=isHighestCardWinner(players);
+//			playerRank.add(p.rank);
+//			System.out.println(p.rank);
+//	}
+//		displayWinner(players);
 	}
 
 	public static boolean checkSameNumber(List<Player> players) {			//check the card/pattas are same or not
@@ -96,7 +110,6 @@ public class Game {
 				Collections.sort(pd);
 				boolean isSequence = true;
 				for (int i = 0; i < pd.size() - 1; i++) {
-//					System.out.println(pd.get(i + 1).getNameOfPatta());
 					if (pd.get(i + 1).getNameOfPatta() - pd.get(i).getNameOfPatta() != 1) {
 						isSequence = false;
 					}
@@ -156,9 +169,12 @@ public class Game {
 	public static boolean checkPair(List<Player> players) {										//check the pair of the patteDesc
 		for (Player p : players) {
 			ArrayList<Patta> card4 = (ArrayList<Patta>) p.hand;
-			HashSet<PatteSuits> suitSet = new HashSet();
+			HashSet<PatteDesc> pattaDesc = new HashSet();
 			for (Patta patta : card4) {
-
+				if(!pattaDesc.contains(card4))
+				{
+					
+				}
 				return true;
 			}
 			
@@ -176,18 +192,43 @@ public class Game {
 				pd5.add(patta.patteDesc);
 			}
 		
-			System.out.println(p.getPname());
-			System.out.println(pd5);
+			System.out.println("__________________________________________________________________________________________________________________________________________________________________________________________________________________________________\n");
+			System.out.println("\t\tPlayer : "+p.getPname()+"\n");
+			System.out.println("\t\t"+pd5);
 			
 			int sum = 0;
 			for (int i = 0; i < pd5.size(); i++) {
 				sum = sum + pd5.get(i).nameOfPatte;
 			}
-			System.out.println(sum);
+			System.out.println("\t\tTotal Score : "+sum+"\n");
 			res.add(sum);
 			
 		}
 		 maxVal=Collections.max(res);
-			System.out.println(maxVal);
+		 System.out.println("__________________________________________________________________________________________________________________________________________________________________________________________________________________________________\n");
+		 System.out.println("\t\tHighest card number is : "+maxVal+"\n");
+//			System.out.println(maxVal);
+//		int sum=0;
+//		for(int i=0;i<pd5.size();i++)
+//		{
+//			sum=sum+pd5.get(i).nameOfPatte;
+//		}
+//		return sum;
 	}
+	
+//	public static void displayWinner(List<Player> players) {
+//		int max=0;
+//		String player="";
+//		for(Player p:players)
+//		{
+//			System.out.println("Rank: "+p.rank);
+//			if(p.rank>max)
+//			{
+//				max=p.rank;
+//				player=p.pname;
+//			}
+//			System.out.println(p.rank);
+//		}
+//		System.out.println("Winner is: "+player+" with rank "+max);
+//	}
 }

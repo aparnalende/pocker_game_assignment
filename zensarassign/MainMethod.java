@@ -13,7 +13,7 @@ public class MainMethod {
 		int p = sc.nextInt();
 
 		String pname;
-		System.out.println("Enter names of player");
+		System.out.println("Enter names of players: ");
 
 		for (int i = 0; i < p; i++) {
 			pname = sc.next();
@@ -24,14 +24,16 @@ public class MainMethod {
 
 		game.dk.shuffleDeckPatta(); // shuffle that all set of patta randomly
 
-		System.out.println("After Shuffling()");
+		System.out.println("\nAfter Shuffling() :");
 		game.dk.displayPatta();
 		game.dispatchPatta(); // here we distribute the 3 pattas from the given accepted players
 
+		System.out.println("__________________________________________________________________________________________________________________________________________________________________________________________________________________________________\n");
+		System.out.println("After card distribution :");
 		for (Player player : game.players) // after distributed the players with set of patta
 		{
-			System.out.println(player.pname);
-			System.out.println(player.getHand());
+			System.out.println("\t\tPlayer :"+player.pname);
+			System.out.println("\t\t "+player.getHand()+"\n");
 		}
 
 		game.getWinner();
