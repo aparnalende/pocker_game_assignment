@@ -6,7 +6,6 @@ public class Player {
 
 	String pname;
 	int rank=0;
-	int cardTotal = 0;
 
 	List<Patta> hand;
 
