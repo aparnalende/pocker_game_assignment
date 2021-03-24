@@ -7,8 +7,7 @@ public class MainMethod {
 	public static void main(String[] args) {
 
 		Scanner sc = new Scanner(System.in);
-		int score=0;
-		
+	
 		System.out.println("How many players you want?"); // accept number of players from users
 		int p = sc.nextInt();
 
@@ -19,6 +18,7 @@ public class MainMethod {
 			pname = sc.next();
 			Game.players.add(new Player(pname)); // we add the player name into the Game list from players
 		}
+		
 		DeckPatta dk = new DeckPatta(); // creating a object of DeckPatta
 		Game game = new Game(dk); // pass the object to the Game class
 

@@ -13,7 +13,7 @@ public class Game {
 		this.dk = dk;
 	}
 
-	public void dispatchPatta() {
+	public void dispatchPatta() {										//here we dispatch the 3 card/pattas for each player using random number
 		int randomVar = 0;
 		for (Player p : players) {
 			ArrayList hand = new ArrayList<Patta>();
@@ -190,16 +190,13 @@ public class Game {
 			count++;
 			hm.put(count, sum);
 		}
-//		System.out.println(hm);
 		System.out.println(
 				"__________________________________________________________________________________________________________________________________________________________________________________________________________________________________\n");
-		int maxVal = (Collections.max(hm.values()));
+		int maxVal = (Collections.max(hm.values()));																//here we find the max score of player
 		for (Entry<Integer, Integer> entry : hm.entrySet()) {
 			if (entry.getValue() == maxVal) {
 				System.out.println("\t\tPlayer : " + entry.getKey() + " win with " + entry.getValue() + " Score");
 			}
 		}
-
 	}
-
 }

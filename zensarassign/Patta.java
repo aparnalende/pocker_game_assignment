@@ -1,5 +1,4 @@
 package zensarassign;
-
 public class Patta {
 
 	PatteSuits patteSuits; // suits of patte in enum form

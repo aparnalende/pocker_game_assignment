@@ -1,13 +1,13 @@
 package zensarassign;
 
 import java.util.*;
+	
+public class Player {																	//create a separate player class 																
 
-public class Player {
-
-	String pname;
+	String pname;																		  //declare player name 
 	int rank=0;
 
-	List<Patta> hand;
+	List<Patta> hand;																	//create a list object of Patta class								
 
 	public Player(String pname) {
 		this.pname = pname;

@@ -3,7 +3,6 @@ package zensarassign;
 import java.util.*;
 
 public class DeckPatta {
-
 	// create a list of patta/card
 	private List<Patta> pattas = new ArrayList<Patta>();
 
